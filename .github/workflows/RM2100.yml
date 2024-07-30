@@ -88,30 +88,24 @@ jobs:
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n" >> .config
         #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n" >> .config
-         sed -i '/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=y" >> .config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_TTYD=y" >> .config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=y" >> .config
-          
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_SFTP/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_SFTP=y" >> .config
-          #sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR/d' .config
-          #echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y" >> .config
-          #sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE/d' .config
-          #echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=y" >> .config
-          #sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENSSH/d' .config
-          #echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=y" >> .config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_HTOP=y" >> .config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_DDNSTO/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=y" >> .config
-          sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config
-          echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y" >> .config
-
-
-
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_TTYD=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=y" >> .config          
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SFTP/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SFTP=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=y" >> .config          
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_DDNSTO/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=y" >> .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y" >> .config
         
         ###############################################################################
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
