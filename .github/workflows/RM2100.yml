@@ -136,7 +136,7 @@ jobs:
     - name: Release Firmware
       uses: softprops/action-gh-release@master
       with:
-        tag_name: Padavan3.4-kvr-RM2100-$FIRMWARE_DATETIME
+        tag_name: Padavan3.4-kvr-RM2100
         files: /opt/images/*.*
         body: |
             Padavan3.4-kvr-RM2100固件，超频1120MHZ
