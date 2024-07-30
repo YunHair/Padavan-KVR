@@ -4,7 +4,11 @@ name: Build-Padavan-RM2100
 on: 
   workflow_dispatch:
 
-
+env:
+  REPOSITORY_URL: https://github.com/YunHair/Padavan-KVR.git 
+  FIRMWARE_DATEPREFIX: $(date +"%Y%m%d")
+  FIRMWARE_DATETIME: $(date +"%Y%m%d%H%M%S")
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +29,7 @@ jobs:
       env:
         KERNEL: 3.4
       run: |
-        git clone --depth=1 https://github.com/YunHair/Padavan-KVR.git /opt/rt-n56u
+        git clone --depth=1 $REPOSITORY_URL /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
@@ -121,17 +125,22 @@ jobs:
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
+        cd /opt/images/
+        for file in *.trx; do
+        new_name="Padavan3.4-kvr-$TNAME-$FIRMWARE_DATETIME-${file%.trx}.trx" 
+        sudo mv -f "$file" "$new_name"      
+        
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-packages
+        name: Padavan3.4-packages
         path: /opt/images
         
     - name: Release Firmware
       uses: softprops/action-gh-release@master
       with:
-        tag_name: Padavan3.4-kvr-RM2100
+        tag_name: Padavan3.4-kvr-RM2100-$FIRMWARE_DATETIME
         files: /opt/images/*.*
         body: |
             Padavan3.4-kvr-RM2100固件，超频1120MHZ
