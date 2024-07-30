@@ -124,7 +124,13 @@ jobs:
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
-        sudo mv -f images/*.trx /opt/images/Padavan3.4-kvr-$TNAME-$FIRMWARE_DATETIME.trx
+
+        
+        sudo mv -f images/*.trx /opt/images/
+        cd /opt/images/
+        for firmwarefile in $(ls *.trx)
+        do sudo mv $firmwarefile Padavan3.4-kvr-$TNAME-$FIRMWARE_DATETIME.trx
+        done
               
         
     - name : Upload packages
